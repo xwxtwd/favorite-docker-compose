@@ -1,0 +1,13 @@
+version: '3.0'
+
+services:
+  jenkins:
+    restart: unless-stopped
+    image: jenkins
+    ports:
+    - 8080:8080
+    - 50000:50000
+    volumes:
+    - /srv/jenkins/jenkins_home:/var/jenkins_home
+    environment:
+    - JAVA_OPTS="-Duser.timezone=Asia/Shanghai"
